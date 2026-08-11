@@ -346,6 +346,104 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
 .faq-a{font-size:13px;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1),padding .25s}
 .faq-item.open .faq-a{max-height:300px;padding:0 20px 16px}
 @media(max-width:760px){.faq-layout{grid-template-columns:1fr;gap:24px}}
+
+/* ── HAMBURGER ─────────────────────────────────────────────────── */
+.nav-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:1px solid var(--border);border-radius:8px;cursor:pointer;padding:8px;flex-shrink:0}
+.nav-burger span{display:block;width:18px;height:2px;background:var(--txt);border-radius:2px;transition:transform .25s,opacity .2s,width .2s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0;width:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mob{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;z-index:498;background:rgba(7,9,15,.98);backdrop-filter:blur(20px);padding:20px 20px 32px;flex-direction:column;gap:2px;overflow-y:auto;border-top:1px solid var(--border)}
+.nav-mob.open{display:flex}
+.nav-mob a{font-size:17px;font-weight:600;color:var(--muted);padding:15px 4px;border-bottom:1px solid var(--border);transition:color .15s;display:block}
+.nav-mob a:last-child{border-bottom:none}
+.nav-mob a:hover,.nav-mob a:active{color:var(--acc)}
+.nav-mob .btn-mob{display:block;text-align:center;justify-content:center;margin-top:20px;background:var(--acc);color:#fff;font-weight:700;font-size:16px;padding:15px 28px;border-radius:var(--r)}
+
+/* ── MOBILE ≤ 760px ────────────────────────────────────────────── */
+@media(max-width:760px){
+  .wrap{padding:0 16px}
+  .nav-burger{display:flex}
+  .nav-cta-d{display:none}
+
+  /* Hero */
+  .hero-content{padding:72px 0 52px}
+  .hero h1{font-size:clamp(30px,9vw,46px);letter-spacing:-.03em}
+  .hero-sub{font-size:14px;max-width:100%}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{text-align:center;justify-content:center;width:100%}
+
+  /* Stats */
+  .stats-panel{margin-top:0}
+  .stat{padding:18px 16px}
+  .stat-val{font-size:28px}
+
+  /* Strip */
+  .strip-i{flex-direction:column;align-items:stretch}
+  .strip-f{flex-direction:column}
+  .strip-f .inp{width:100%}
+  .strip-f .btn{width:100%;justify-content:center}
+
+  /* Sections reduce padding */
+  .schemes,.cases,.pack-sec,.reviews,.faq,.photos{padding:56px 0}
+  .why,.steps,.midcta{padding:52px 0}
+
+  /* SGT */
+  .sgt{padding:72px 0 90px}
+  .sgt-grid{grid-template-columns:1fr 1fr}
+
+  /* Cases — already 1 col at 720px; add tablet handled below */
+
+  /* Steps → 2 col */
+  .steps-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .steps-grid::before{display:none}
+  .step{padding:0 8px}
+
+  /* Photos */
+  .photo-grid{grid-template-columns:1fr 1fr}
+  .photo-card:nth-child(1),.photo-card:nth-child(6){grid-column:span 2;aspect-ratio:16/9}
+
+  /* Toasts — full width */
+  .toasts{left:12px;right:12px;bottom:72px}
+  .toast{min-width:unset;max-width:100%;width:100%}
+
+  /* Sticky bar */
+  .sbar-txt span{display:none}
+
+  /* Footer */
+  .foot-i{flex-direction:column;gap:20px;align-items:flex-start}
+  .foot-links{gap:12px}
+
+  /* Popup */
+  .pop-box{margin:12px}
+}
+
+/* ── VERY SMALL ≤ 480px ────────────────────────────────────────── */
+@media(max-width:480px){
+  .hero h1{font-size:clamp(28px,8vw,38px)}
+  .sgt-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+  .photo-grid{grid-template-columns:1fr}
+  .photo-card:nth-child(1),.photo-card:nth-child(6){grid-column:span 1;aspect-ratio:4/3}
+  .ya-bar{flex-direction:column;align-items:flex-start;gap:14px}
+  .midcta-box{padding:22px 16px}
+  .fbox{padding:20px 14px}
+}
+
+/* ── TABLET 761–1024px ─────────────────────────────────────────── */
+@media(min-width:761px) and (max-width:1024px){
+  .wrap{padding:0 20px}
+  .hero-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .sch-grid{grid-template-columns:1fr 1fr}
+  .cases-grid{grid-template-columns:1fr 1fr}
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .photo-grid{grid-template-columns:repeat(3,1fr)}
+  .photo-card:nth-child(1){grid-column:span 2;aspect-ratio:16/9}
+  .photo-card:nth-child(6){grid-column:span 1;aspect-ratio:4/3}
+  .form-lay{grid-template-columns:1fr;gap:36px}
+  .frow{grid-template-columns:1fr 1fr}
+  .midcta-box{padding:32px}
+}
 </style>
 
 <div id="prog"></div>
@@ -366,11 +464,26 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#form">Контакты</a></li>
     </ul>
-    <div>
+    <div class="nav-cta-d">
       <a href="#form" class="btn" style="padding:10px 20px;font-size:13px">Оставить заявку</a>
     </div>
+    <button class="nav-burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="nav-mob" id="navMob">
+  <a href="#schemes" onclick="closeMob()">Схемы работы</a>
+  <a href="#sgt" onclick="closeMob()">СГТ-товары</a>
+  <a href="#cases" onclick="closeMob()">Кейсы</a>
+  <a href="#packaging" onclick="closeMob()">Упаковка</a>
+  <a href="#why" onclick="closeMob()">О нас</a>
+  <a href="#reviews" onclick="closeMob()">Отзывы</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#form" class="btn-mob" onclick="closeMob()">Оставить заявку →</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -1470,6 +1583,16 @@ async function sendToTelegram(data){
     return false;
   }
 }
+
+// ── Гамбургер-меню ────────────────────────────────────────────────────────
+const burger=document.getElementById('burger');
+const navMob=document.getElementById('navMob');
+function closeMob(){burger.classList.remove('open');navMob.classList.remove('open');document.body.style.overflow='';}
+burger.addEventListener('click',()=>{
+  const open=navMob.classList.toggle('open');
+  burger.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+});
 
 // ── Главная форма ──────────────────────────────────────────────────────────
 document.getElementById('mf').addEventListener('submit',async e=>{
