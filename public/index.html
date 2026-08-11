@@ -1630,26 +1630,62 @@ async function qs(pid,bid){
 
 // ── POPUP ──
 const pop=document.getElementById('pop');
-function closePop(){pop.classList.remove('open');localStorage.setItem('pp1','1');}
+let popLocked=false;
+
+function openPop(){
+  if(popLocked)return;
+  popLocked=true;
+  // сбросить форму если уже заполняли
+  const pf=document.getElementById('pf');
+  const pt=document.getElementById('popThanks');
+  if(pf){pf.style.display='';} if(pt){pt.style.display='none';}
+  pop.classList.add('open');
+  setTimeout(()=>{popLocked=false;},500);
+}
+function closePop(){
+  pop.classList.remove('open');
+  // следующий показ через 3 минуты
+  setTimeout(openPop, 3*60*1000);
+}
 pop.addEventListener('click',e=>{if(e.target===pop)closePop();});
-if(!localStorage.getItem('pp1')) setTimeout(()=>pop.classList.add('open'),5500);
+
+// 1) Первый показ через 8 секунд
+setTimeout(openPop, 8000);
+
+// 2) Триггер при 55% прокрутки страницы
+let scrollTriggered=false;
+window.addEventListener('scroll',()=>{
+  if(scrollTriggered)return;
+  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight);
+  if(pct>0.55){scrollTriggered=true;openPop();}
+},{passive:true});
+
+// 3) Exit-intent — мышь уходит в верх страницы (desktop)
+document.addEventListener('mouseleave',e=>{
+  if(e.clientY<10)openPop();
+});
+
+// 4) Смена вкладки (мобильный уходит на другое приложение)
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden)return;
+  openPop();
+});
+
 async function popSubmit(){
   const phone=document.getElementById('pp').value.trim();
   if(!phone){document.getElementById('pp').focus();return;}
   await sendToTelegram({phone,source:'Всплывающее окно'});
   document.getElementById('pf').style.display='none';
   document.getElementById('popThanks').style.display='block';
-  setTimeout(closePop,2200);
+  setTimeout(()=>{pop.classList.remove('open');},2200);
 }
 
 // ── STICKY BAR ──
 const sbar=document.getElementById('sb');
-if(!localStorage.getItem('sb1')){
-  let done=false;
-  window.addEventListener('scroll',()=>{
-    if(!done&&window.scrollY>500){done=true;sbar.classList.add('show');}
-  },{passive:true});
-}
+let sbarDone=false;
+window.addEventListener('scroll',()=>{
+  if(!sbarDone&&window.scrollY>300){sbarDone=true;sbar.classList.add('show');}
+},{passive:true});
 
 // ── FAQ ACCORDION ──
 function toggleFaq(el){
@@ -1690,5 +1726,6 @@ function showToast(){
     setTimeout(()=>el.remove(),380);
   },4500);
 }
-setTimeout(()=>{showToast();setInterval(showToast,12000);},9000);
+// Тосты: первый через 4с, потом каждые 7с
+setTimeout(()=>{showToast();setInterval(showToast,7000);},4000);
 </script>
