@@ -59,11 +59,134 @@
     "opens": "09:00",
     "closes": "18:00"
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "Краснодар"
+  "areaServed": [
+    {"@type": "City", "name": "Краснодар"},
+    {"@type": "State", "name": "Краснодарский край"},
+    {"@type": "State", "name": "Южный федеральный округ"}
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "47",
+    "bestRating": "5",
+    "worstRating": "1"
   },
-  "serviceType": ["Фулфилмент", "Хранение товаров", "Сборка заказов", "Отгрузка на маркетплейсы"]
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги фулфилмента в Краснодаре",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "FWB — поставка на склад Wildberries",
+          "description": "Приёмка, маркировка, упаковка по стандартам Wildberries и отгрузка на распределительный центр. Фотофиксация каждого SKU.",
+          "areaServed": {"@type": "City", "name": "Краснодар"}
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "FBS — хранение и сборка заказов",
+          "description": "Ответственное хранение товара на стеллажах, сборка под каждый заказ, печать и наклейка этикетки WB/Ozon, передача курьеру маркетплейса.",
+          "areaServed": {"@type": "City", "name": "Краснодар"}
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "rFBS — региональная доставка по ЮФО",
+          "description": "Хранение в Краснодаре, доставка до покупателя по ЮФО и СКФО без РЦ маркетплейса. Партнёры: СДЭК, Деловые Линии, ПЭК, Байкал Сервис.",
+          "areaServed": {"@type": "State", "name": "Южный федеральный округ"}
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Фулфилмент СГТ — сверхгабаритные товары",
+          "description": "Приёмка, хранение и отгрузка товаров весом от 25 кг и длиной от 150 см. Мебель, техника, стройматериалы. Работаем с требованиями маркетплейсов к СГТ.",
+          "areaServed": {"@type": "City", "name": "Краснодар"}
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- ── Schema.org: FAQPage (Rich Snippets в Яндексе) ───────────────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "С какими маркетплейсами вы работаете?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Работаем с Wildberries, Ozon, Яндекс Маркет и Мегамаркет. Знаем требования каждой площадки к упаковке, маркировке и поставкам. Для каждого маркетплейса настраиваем процесс отдельно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Работаете ли вы со сверхгабаритными товарами (СГТ)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, это одна из наших специализаций. Принимаем товары весом от 25 кг и длиной от 150 см. Есть погрузчики, высокие стеллажи и опыт работы с требованиями маркетплейсов к СГТ-позициям."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как узнать стоимость фулфилмента в Краснодаре?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Оставьте заявку или позвоните по номеру +7 (999) 600-88-75 — менеджер свяжется за 2 часа и сделает расчёт под ваш товар, объём и схему работы. Расчёт бесплатный, без обязательств."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как заключить договор и сколько времени это займёт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "После согласования тарифов высылаем договор на подпись. Работаем с ИП и ООО, электронный документооборот. От заявки до приёма первой партии — 3 рабочих дня."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Есть ли гарантии сохранности товара на складе в Краснодаре?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Ответственность за товар на нашем складе закреплена в договоре. При приёмке проводим пересчёт и видеофиксацию. Склад охраняется 24/7, есть камеры видеонаблюдения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "В чём разница между FWB, FBS и rFBS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FWB — мы формируем поставку и везём на РЦ маркетплейса. FBS — товар хранится у нас, заказы собираем и передаём курьеру площадки. rFBS — хранение у нас, но доставку до покупателя по ЮФО берём на себя. Поможем выбрать оптимальную схему под ваш товар и объём."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Может ли измениться стоимость услуг?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Тарифы фиксируются в договоре и не меняются в одностороннем порядке. При изменении объёма или ассортимента пересогласовываем условия заранее и письменно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли приехать на склад фулфилмента в Краснодаре и посмотреть?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, будем рады показать склад и познакомиться лично. Адрес: 1-й Тихорецкий проезд, 15, Краснодар. Договоритесь об удобном времени через менеджера — проведём экскурсию и ответим на все вопросы на месте."
+      }
+    }
+  ]
 }
 </script>
 <style>
@@ -566,7 +689,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
         </div>
         <h1>
           <span class="h1-line"><span class="h1-word h1-grad">Фулфилмент</span></span>
-          <span class="h1-line"><span class="h1-word" style="transition-delay:.18s">для маркет&shy;плейсов</span></span>
+          <span class="h1-line"><span class="h1-word" style="transition-delay:.18s">в Краснодаре</span></span>
+          <span class="h1-line"><span class="h1-word" style="transition-delay:.32s">для маркет&shy;плейсов</span></span>
         </h1>
         <p class="hero-sub">Хранение, сборка и отгрузка по схемам FWB, FBS и rFBS. Работаем со всеми категориями товаров — включая сверхгабарит.</p>
         <div class="hero-cta">
@@ -633,7 +757,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
       <div class="sch-card fi tilt">
         <div class="sch-top">
           <div class="sch-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Поставка на склад Wildberries FWB">
               <path d="M3 21V10l9-7 9 7v11H3z"/><rect x="9" y="14" width="6" height="7"/><path d="M9 14h6M12 14v7"/>
             </svg>
           </div>
@@ -657,7 +781,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
       <div class="sch-card fi tilt" style="transition-delay:.09s">
         <div class="sch-top">
           <div class="sch-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="FBS хранение и сборка заказов на складе Краснодар">
               <path d="M20 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z"/>
               <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M12 12v4M10 14h4"/>
             </svg>
@@ -682,7 +806,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
       <div class="sch-card fi tilt" style="transition-delay:.18s">
         <div class="sch-top">
           <div class="sch-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="rFBS региональная доставка по ЮФО из Краснодара">
               <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M12 2a14.5 14.5 0 010 20M2 12h20"/>
               <path d="M12 2c-3 4-3 14 0 20M12 2c3 4 3 14 0 20" stroke-dasharray="2 2"/>
             </svg>
@@ -728,7 +852,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
         <div class="sgt-grid">
           <div class="sgt-item">
             <div class="sgt-item-ico">
-              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" role="img" aria-label="Фулфилмент мебели СГТ Краснодар">
                 <rect x="3" y="10" width="22" height="15" rx="1"/><path d="M8 10V7a2 2 0 014 0v3M16 10V7a2 2 0 014 0v3"/><path d="M3 15h22"/>
               </svg>
             </div>
@@ -737,7 +861,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
           </div>
           <div class="sgt-item">
             <div class="sgt-item-ico">
-              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" role="img" aria-label="Фулфилмент электротехники СГТ Краснодар">
                 <rect x="5" y="5" width="18" height="18" rx="2"/><path d="M5 11h18M11 5v18"/>
                 <circle cx="14" cy="14" r="3"/>
               </svg>
@@ -747,7 +871,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
           </div>
           <div class="sgt-item">
             <div class="sgt-item-ico">
-              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" role="img" aria-label="Фулфилмент стройматериалов СГТ Краснодар">
                 <path d="M4 22L14 5l10 17H4z"/><path d="M14 16v4M12 13h4"/>
               </svg>
             </div>
@@ -756,7 +880,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 0 28
           </div>
           <div class="sgt-item">
             <div class="sgt-item-ico">
-              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" role="img" aria-label="Фулфилмент спортивных товаров СГТ Краснодар">
                 <circle cx="7" cy="20" r="3"/><circle cx="21" cy="20" r="3"/>
                 <path d="M10 20H18M7 17V10l5-5h4l4 4v8"/>
               </svg>
